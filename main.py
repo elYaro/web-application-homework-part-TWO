@@ -71,7 +71,11 @@ def mentors():
     mentors = data_manager.get_mentors()
     return render_template('mentors.html', mentors=mentors)
 
-
+@app.route('/all_school')
+def all_school():
+    # We get back dictionaries here (for details check 'database_common.py')
+    all_school = data_manager.get_all_school()
+    return render_template('all_school.html', all_school=all_school)
 
 if __name__ == '__main__':
     app.run(debug=True)
