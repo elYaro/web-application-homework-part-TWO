@@ -130,3 +130,17 @@ def get_mentors(cursor):
                    )
     names = cursor.fetchall()
     return names
+
+#TASK 2 PART2: all-school
+@database_common.connection_handler
+def get_all_school(cursor):
+    cursor.execute("""
+                    SELECT COALESCE(mentors.first_name,'No data') AS first_name, COALESCE(mentors.last_name,'No data') AS last_name, schools.name AS school_name, schools.country FROM mentors
+                    RIGHT JOIN schools
+                    ON mentors.city = schools.city
+                    ORDER BY mentors.id
+                    ;
+                   """
+                   )
+    names = cursor.fetchall()
+    return names
