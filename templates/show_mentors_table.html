@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="mentors">
+        {% for row in show_mentor_table %}
+            {{ row.id|string + " " + row.first_name + " " + row.last_name + " " + row.nick_name + " " + row.phone_number + " " + row.email + " " + row.city + " " + row.favourite_number|string }}<br/>
+        {% endfor%}
+    </div>
+
+    {% include 'footer.html' %}
+{% endblock %}

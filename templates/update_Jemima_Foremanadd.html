@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="mentors">    
+        <p> {% for row in update_Jemima_Foremanadd %}
+                {{ row.first_name + " " + row.last_name + " " + row.phone_number + " " + row.email }}<br/>
+            {% endfor%}
+    </div>
+
+    {% include 'footer.html' %}
+{% endblock %}

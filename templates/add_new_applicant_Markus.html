@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="mentors">
+        <p>applicant Markus has been added successfully. Find details below:</p>
+    
+        <p> {% for row in add_new_applicant %}
+                {{ row.first_name + " " + row.last_name + " " + row.phone_number + " " + row.email }}<br/>
+            {% endfor%}
+    </div>
+
+    {% include 'footer.html' %}
+{% endblock %}

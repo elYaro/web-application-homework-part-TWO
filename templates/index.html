@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <span>TASK 1: first and second name of all mentors</span>
+    <a ssssss href="{{ url_for('mentor_2_names') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 2: mentor's nicknames (those who work at Miskolc)</span>
+    <a href="{{ url_for('mentor_nick_names') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 3: fine Carol phone number</span>
+    <a href="{{ url_for('find_CAROL') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 4: find name and phone number of lost hat Owner by email</span>
+    <a href="{{ url_for('find_her_by_email') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 5: add applicant Markus Schaffarzyk to the list</span>
+    <a href="{{ url_for('add_new_applicant') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 6: update Jemima Foreman's phone number</span>
+    <a href="{{ url_for('update_Jemima_Foremanadd') }}">GET IT</a>
+</div>
+<div>
+    <span>TASK 7: delete applicants with email ended with @mauriseu.net</span>
+    <a href="{{ url_for('delete_applicant_by_email') }}">GET IT</a>
+</div>
+<div>
+<br>
+<br>
+    <span>SUMMARY: show mentor's table</span>
+    <a href="{{ url_for('show_mentor_table') }}">GET IT</a>
+</div>
+<div>
+    <span>SUMMARY: show applicant's table</span>
+    <a href="{{ url_for('show_applicant_table') }}">GET IT</a>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="mentors">
+        {% for row in show_applicant_table %}
+            {{ row.id|string + " " + row.first_name + " " + row.last_name + " " + row.phone_number + " " + row.email + " " + row.application_code|string }}<br/>
+        {% endfor%}
+    </div>
+
+    {% include 'footer.html' %}
+{% endblock %}
