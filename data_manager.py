@@ -116,3 +116,17 @@ def get_show_applicant_table(cursor):
                     )
     names = cursor.fetchall()
     return names
+
+#TASK 1 PART2: mentors
+@database_common.connection_handler
+def get_mentors(cursor):
+    cursor.execute("""
+                    SELECT mentors.first_name, mentors.last_name, schools.name AS school_name, schools.country FROM mentors
+                    INNER JOIN schools
+                    ON mentors.city = schools.city
+                    ORDER BY mentors.id
+                    ;
+                   """
+                   )
+    names = cursor.fetchall()
+    return names
