@@ -65,6 +65,13 @@ def show_applicant_table():
     show_applicant_table = data_manager.get_show_applicant_table()
     return render_template('show_applicants_table.html', show_applicant_table=show_applicant_table)
 
+@app.route('/mentors')
+def mentors():
+    # We get back dictionaries here (for details check 'database_common.py')
+    mentors = data_manager.get_mentors()
+    return render_template('mentors.html', mentors=mentors)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
