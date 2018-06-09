@@ -173,3 +173,18 @@ def get_contacts(cursor):
                    )
     names = cursor.fetchall()
     return names
+
+#TASK 5 PART2: applicants
+@database_common.connection_handler
+def get_applicants(cursor):
+    cursor.execute("""
+                    SELECT applicants.first_name, applicants.application_code, applicants_mentors.creation_date FROM applicants
+                    INNER JOIN applicants_mentors
+                    ON applicants.id = applicants_mentors.applicant_id
+                    WHERE applicants_mentors.creation_date > '2016-01-01'
+                    ORDER BY applicants_mentors.creation_date DESC
+                    ;
+                   """
+                   )
+    names = cursor.fetchall()
+    return names
