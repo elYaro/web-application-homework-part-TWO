@@ -159,3 +159,17 @@ def get_mentors_by_country(cursor):
                    )
     names = cursor.fetchall()
     return names
+
+#TASK 4 PART2: contacts
+@database_common.connection_handler
+def get_contacts(cursor):
+    cursor.execute("""
+                    SELECT schools.name, mentors.first_name, mentors.last_name FROM mentors
+                    INNER JOIN schools
+                    ON mentors.id = schools.contact_person
+                    ORDER BY schools.name;
+                    ;
+                   """
+                   )
+    names = cursor.fetchall()
+    return names
