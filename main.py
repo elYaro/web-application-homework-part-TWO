@@ -83,5 +83,17 @@ def mentors_by_country():
     mentors_by_country = data_manager.get_mentors_by_country()
     return render_template('mentors_by_country.html', mentors_by_country=mentors_by_country)
 
+@app.route('/contacts')
+def contacts():
+    # We get back dictionaries here (for details check 'database_common.py')
+    contacts = data_manager.get_contacts()
+    return render_template('contacts.html', contacts=contacts)
+
+
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
