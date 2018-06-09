@@ -89,7 +89,11 @@ def contacts():
     contacts = data_manager.get_contacts()
     return render_template('contacts.html', contacts=contacts)
 
-
+@app.route('/applicants')
+def applicants():
+    # We get back dictionaries here (for details check 'database_common.py')
+    applicants = data_manager.get_applicants()
+    return render_template('applicants.html', applicants=applicants)
 
 
 
