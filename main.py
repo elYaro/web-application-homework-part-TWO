@@ -77,5 +77,11 @@ def all_school():
     all_school = data_manager.get_all_school()
     return render_template('all_school.html', all_school=all_school)
 
+@app.route('/mentors_by_country')
+def mentors_by_country():
+    # We get back dictionaries here (for details check 'database_common.py')
+    mentors_by_country = data_manager.get_mentors_by_country()
+    return render_template('mentors_by_country.html', mentors_by_country=mentors_by_country)
+
 if __name__ == '__main__':
     app.run(debug=True)
