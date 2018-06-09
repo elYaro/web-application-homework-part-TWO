@@ -95,7 +95,11 @@ def applicants():
     applicants = data_manager.get_applicants()
     return render_template('applicants.html', applicants=applicants)
 
-
+@app.route('/applicants_and_mentors')
+def applicants_and_mentors():
+    # We get back dictionaries here (for details check 'database_common.py')
+    applicants_and_mentors = data_manager.get_applicants_and_mentors()
+    return render_template('applicants_and_mentors.html', applicants_and_mentors=applicants_and_mentors)
 
 
 

@@ -188,3 +188,20 @@ def get_applicants(cursor):
                    )
     names = cursor.fetchall()
     return names
+
+#TASK 6 PART2: applicants_and_mentors
+@database_common.connection_handler
+def get_applicants_and_mentors(cursor):
+    cursor.execute("""
+                    SELECT applicants.first_name AS applicant_name, applicants.application_code, COALESCE(mentors.first_name,'No data') AS mentor_first_name, COALESCE(mentors.last_name, 'NO data') AS mentor_last_name
+                    FROM applicants
+                    FULL JOIN applicants_mentors
+                    ON applicants.id = applicants_mentors.applicant_id 
+                    LEFT JOIN mentors
+                    ON applicants_mentors.mentor_id = mentors.id
+                    ORDER BY applicants.id
+                    ;
+                   """
+                   )
+    names = cursor.fetchall()
+    return names
